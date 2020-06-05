@@ -7,6 +7,7 @@
 
 // ---------------------------------------------------------------------------
 #include <Wire.h>
+#include <loraWan.h>
 // ------------------- Define some constants for convenience -----------------
 #define CHANNEL1 0
 #define CHANNEL2 1
@@ -132,13 +133,13 @@ void setup() {
 
     configureChannelMapping();
 
-    // Configure interrupts for receiver
+   /* // Configure interrupts for receiver
     PCICR  |= (1 << PCIE0);  // Set PCIE0 to enable PCMSK0 scan
     PCMSK0 |= (1 << PCINT0); // Set PCINT0 (digital input 8) to trigger an interrupt on state change
     PCMSK0 |= (1 << PCINT1); // Set PCINT1 (digital input 9) to trigger an interrupt on state change
     PCMSK0 |= (1 << PCINT2); // Set PCINT2 (digital input 10)to trigger an interrupt on state change
     PCMSK0 |= (1 << PCINT3); // Set PCINT3 (digital input 11)to trigger an interrupt on state change
-
+*/
     period = (1000000/FREQ) ; // Sampling period in µs
 
     // Initialize loop_timer
@@ -624,7 +625,7 @@ bool isBatteryConnected() {
  *
  * @see https://www.arduino.cc/en/Reference/PortManipulation
  * @see https://www.firediy.fr/article/utiliser-sa-radiocommande-avec-un-arduino-drone-ch-6
- */
+ 
 ISR(PCINT0_vect) {
         current_time = micros();
 
@@ -672,3 +673,4 @@ ISR(PCINT0_vect) {
             pulse_length[CHANNEL4] = current_time - timer[CHANNEL4];   // Calculate pulse duration & save it
         }
 }
+*/
